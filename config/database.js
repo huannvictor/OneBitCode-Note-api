@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
+require('dotenv').config();
 
-const mongoURI = "mongodb://127.0.0.1/oneBitCodeNote";
+// const mongoURI = "mongodb://127.0.0.1/oneBitCodeNote";
 //! For nodejs (v17.x) and above, use mongodb url "127.0.0.1" instead "localhost"
 
+const MONGO_URL = process.env.MONGO_URL;
+
 mongoose
-  .connect(mongoURI, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
